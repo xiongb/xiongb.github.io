@@ -36,3 +36,9 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+### 生成hexo的时候 编辑.travis.yml 需要注意，保留空格 否则 hexo deploy会没反应
+deploy: 
+  type: git
+  repo: git@github.com:xiongb/xiongb.github.io.git
+  branch: master  
