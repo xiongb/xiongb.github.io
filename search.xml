@@ -4,24 +4,36 @@
   
     
     <entry>
-      <title>test</title>
-      <link href="/2020/04/04/test/"/>
-      <url>/2020/04/04/test/</url>
+      <title>Hexo git搭建个人博客</title>
+      <link href="/2020/04/06/hexo/"/>
+      <url>/2020/04/06/hexo/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><h4 id="安装完成-node-v-查看版本号"><a href="#安装完成-node-v-查看版本号" class="headerlink" title="安装完成 node -v 查看版本号"></a>安装完成 node -v 查看版本号</h4><pre class=" language-bash"><code class="language-bash"> node -v  </code></pre><p>####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像</p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org</code></pre><p>####可通过nrm ls查看所有镜像地址</p><pre class=" language-bash"><code class="language-bash">nrm <span class="token function">ls</span></code></pre><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><h4 id="安装成功后设置用户名邮箱"><a href="#安装成功后设置用户名邮箱" class="headerlink" title="安装成功后设置用户名邮箱"></a>安装成功后设置用户名邮箱</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"your name"</span><span class="token function">git</span> config --global user.email <span class="token string">"your email"</span></code></pre><p>####配置SSH key  </p><pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮件地址"</span>   // 生成key</code></pre><p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p><h4 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com <span class="token comment" spellcheck="true"># 注意邮箱地址不用改  //验证成功</span></code></pre><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><pre class=" language-bash"><code class="language-bash">    <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre><h4 id="新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件"><a href="#新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件" class="headerlink" title="新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件"></a>新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件</h4><pre class=" language-bash"><code class="language-bash">$ hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>$ <span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>$ <span class="token function">npm</span> <span class="token function">install</span></code></pre><p>####hexo本地部署  </p><pre class=" language-bash"><code class="language-bash">    hexo clean  清理目录    hexo g 生成静态文件     hexo s 启动本地服务器     hexo d 发布到网站 （需要特殊配置）</code></pre><p>###静态网页部署至github<br>####新建仓库<br>登陆自己的github 新建一个一个仓库 Repositories</p><p><img src="/.io//1111.jpg" alt="1111"></p> <img src="/.io//04/06/hexo/1111.jpg" class=""><p>在Repositories name 输入 yourname.github.io,   yourname代表你自己github账号<br>待部署成功后可通过<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 访问你部署的网站<br>####配置git<br>####安装插件 </p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-deployer-git</code></pre><p>####修改_config.yml文件<br>打开网站目录的 _config.yml<br>移动到最低端，在deploy:后面写入内容  注意空格很重要，刚开始忽略了空格出现了问题</p><pre><code>type: git    repo: github仓库地址      branch: master </code></pre><p>我的仓库地址    repo: <a href="mailto:git@github.com">git@github.com</a>:xiongb/xiongb.github.io.git</p><p>####最后通过hexo d推送到github   可通过<a href="https://yourname.github.io访问了" target="_blank" rel="noopener">https://yourname.github.io访问了</a></p><pre class=" language-bash"><code class="language-bash">hexo d</code></pre><p> <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a><br> <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a><br> <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a><br> <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">github</a>.</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      <categories>
+          
+          <category> Hexo 相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2020/04/04/hello-world/"/>
-      <url>/2020/04/04/hello-world/</url>
+      <title>test</title>
+      <link href="/2020/04/04/test/"/>
+      <url>/2020/04/04/test/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p><h3 id="生成hexo的时候-编辑-travis-yml-需要注意，保留空格-否则-hexo-deploy会没反应"><a href="#生成hexo的时候-编辑-travis-yml-需要注意，保留空格-否则-hexo-deploy会没反应" class="headerlink" title="生成hexo的时候 编辑.travis.yml 需要注意，保留空格 否则 hexo deploy会没反应"></a>生成hexo的时候 编辑.travis.yml 需要注意，保留空格 否则 hexo deploy会没反应</h3><p>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:xiongb/xiongb.github.io.git<br>  branch: master  </p>]]></content>
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
