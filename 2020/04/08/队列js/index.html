@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="gulp构建cocos2d-js, 风の记忆">
+    <meta name="keywords" content="队列, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>gulp构建cocos2d-js | 风の记忆</title>
+    <title>队列 | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">gulp构建cocos2d-js</h1>
+                    <h1 class="description center-align post-title">队列</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/gulp-cocos2d-js/">
-                                <span class="chip bg-color">gulp cocos2d-js</span>
+                            <a href="/tags/js-%E9%98%9F%E5%88%97-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">js 队列 循环队列 数据结构</span>
                             </a>
                         
                     </div>
@@ -389,14 +389,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-08
                 </div>
                 
 
@@ -411,148 +411,116 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>###安装gulp<br>安装gulp命令行工具 </p>
-<pre><code>    npm install --global gulp-cli</code></pre><p>创建目录并初始化package.json</p>
-<pre><code>npx mkdir {my-project}
-cd {my-project}
-npm init</code></pre><p>安装 gulp，作为开发时依赖项</p>
-<pre><code>npm install --save-dev gulp
-gulp --version</code></pre><p>在项目根目录下创建gulpfile.js文件  </p>
-<p>安装插件  </p>
-<pre><code>npm i --save-dev gulp-concat  //合并js文件 
-npm i --save-dev gulp-clean   // 清理某个目录 
-npm i --save-dev gulp-uglify   //压缩js代码 
-npm i --save-dev gulp-uglify-es   //压缩js代码  支持es6语法
-npm i --save-dev gulp-rev   //给资源文件生成映射关系 md5码 
-npm i --save-dev gulp-rev-collector  //根据生成的映射关系替换html中的文件名
-npm i --save-dev gulp-sourcemaps  //生成sourcemap插件 
-npm i --save-dev gulp-del  //删除文件</code></pre><p>在文件中导入插件 </p>
-<pre><code> const {parallel,series ,src,dest } = require('gulp');
- const gulp = require('gulp');
- const uglify = require('gulp-uglify-es').default;
- //const uglify = require('gulp-uglify');
- const rename = require('gulp-rename');
- const concat = require('gulp-concat');
- const revCollector = require('gulp-rev-collector');
- const rev = require('gulp-rev');   // 生成映射
- const clean = require('gulp-clean');
- const sourcemap = require('gulp-sourcemaps');
- const babel = require('gulp-babel');
- const del = require('del')</code></pre><p>根据project.json 和moduleConfig.json文件读取引擎目录下的所有js文件</p>
-<pre><code>let fs = require('fs');
-let cacheModule = {}
-let prex = './frameworks/cocos2d-html5/'
-function readJson(path){
-    let str = fs.readFileSync(path,'utf8');
-    let json = JSON.parse(str);
-    return json;
+                <pre><code>/**
+ * 基于链表实现的队列。
+ *
+ * Author: nameczz
+ */
+
+class Node {
+    constructor(element) {
+        this.element = element
+        this.next = null
+    }
 }
 
-function readAllFiles(){
-    let projectCfg = readJson('./project.json');
-    let moduleConfig = readJson(prex + 'moduleConfig.json');
-    let projectModule = projectCfg['modules'];
-    let files = new Array();
-    files.push(prex + moduleConfig['bootFile']);
+class QueueBasedOnLinkedList {
+    constructor() {
+        this.head = null
+        this.tail = null
+    }
 
-    for(let i =0;i &lt; projectModule.length;i++){
-        let name = projectModule[i];
-        let module = moduleConfig['module'][name];
-        if(module){
-            if (cacheModule[name]) continue ;
-            cacheModule[name] = 1;
-            for(let j = 0;j &lt; module.length;j++){
-                let testname = module[j];
-                if (cacheModule[testname]) continue;
-                cacheModule[testname] = 1;
-                if(module[j].indexOf('.js') !== -1){
-                    files.push(prex+module[j])
-                }else {
-                    getFilesFromModule(files,moduleConfig['module'],module[j])
-                }
+    enqueue(value) {
+        if (this.head === null) {
+            this.head = new Node(value)
+            this.tail = this.head
+        } else {
+            this.tail.next = new Node(value)
+            this.tail = this.tail.next
+        }
+    }
+
+    dequeue() {
+        if (this.head !== null) {
+            const value = this.head.element
+            this.head = this.head.next
+            return value
+        } else {
+            return -1
+        }
+    }
+}
+// Test
+const newQueue = new QueueBasedOnLinkedList()
+// 插入元素
+newQueue.enqueue(1)
+newQueue.enqueue(2)
+newQueue.enqueue(3)
+// 获取元素
+let res = 0
+console.log('-------获取dequeue元素------')
+while (res !== -1) {
+    res = newQueue.dequeue()
+    console.log(res)
+}</code></pre><pre><code>/**
+ * 基于链表实现的循环队列。
+ *
+ * Author: nameczz
+ */
+
+class Node {
+    constructor(element) {
+        this.element = element
+        this.next = null
+    }
+}
+
+class CircularQueue {
+    constructor() {
+        this.head = null
+        this.tail = null
+    }
+
+    enqueue(value) {
+        if (this.head === null) {
+            this.head = new Node(value)
+            this.head.next = this.head
+            this.tail = this.head
+        } else {
+            const flag = this.head === this.tail
+            this.tail.next = new Node(value)
+            this.tail.next.next = this.head
+            this.tail = this.tail.next
+            if (flag) {
+                this.head.next = this.tail
             }
         }
     }
 
-    for (let i = 0;i &lt; projectCfg.jsList.length;i++){
-        files.push(projectCfg.jsList[i])
-    }
-    files.push('./game.min.js');
-    return files;
-}
+    dequeue() {
+        if(this.head == null) return -1
 
-function getFilesFromModule(files,module,str) {
-    if (module[str]){
-        let modules = module[str];
-        for (let i = 0;i &lt; modules.length;i++){
-            let name = modules[i];
-            if (cacheModule[name]) continue ;
-            cacheModule[name] = 1;
-            if (name.indexOf('.js') !== -1){
-                files.push(prex+name)
-            } else {
-                getFilesFromModule(files,module,name)
-            }
+        if (this.head === this.tail) {
+            const value = this.head.element
+            this.head = null
+            return value
+        } else {
+            const value = this.head.element
+            this.head = this.head.next
+            this.tail.next = this.head
+            return value
+        } 
+    }
+
+    display() {
+        let res = 0
+        console.log('-------获取dequeue元素------')
+        while (res !== -1) {
+            res = this.dequeue()
+            console.log(res)
         }
     }
-}</code></pre><p>打包js文件 且生成sourcemap</p>
-<pre><code>function concatJs() {
-    let files = readAllFiles();
-    let arr = [...files];
-    return src(arr)
-        //.pipe(babel())
-        .pipe(sourcemap.init())
-        .pipe(concat('game.min.js'))
-
-        .pipe(uglify())
-        .pipe(sourcemap.write('./') )
-        .pipe(dest(`./`))
-}</code></pre><p>给项目目录下所有文件生成对应的映射关系，排除掉map文件不需要生成 最终映射关系在ls.json文件里面</p>
-<pre><code>function revAllRes() {
-    return src([`./game.min.js`,`./res/**/*`,'!./**/*.map','!./res/data/*.json'],{base:'.'})
-        .pipe(rev())
-        .pipe(gulp.dest(`${projectPath}`))
-        .pipe(rev.manifest({
-            path: `ls.json`,
-            merge: true
-        }))
-        .pipe(gulp.dest(`${projectPath}/ls/`));
-}</code></pre><p>直接拷贝 不需要生产md5</p>
-<pre><code>function copyOther(){
-    return src(['./index.html','./project.json','./res/data/*.json'],{ base:'.' })
-        .pipe(gulp.dest(`${projectPath}`));
-}</code></pre><p>修改project.json里面的参数 </p>
-<pre><code>function changeProjectJson(cb){
-    let projectCfg = readJson(`${projectPath}project.json`);
-    delete projectCfg['modules'];
-    delete projectCfg['jsList'];
-    projectCfg['noCache'] = false;
-    fs.writeFileSync(`${projectPath}project.json`,JSON.stringify(projectCfg));
-    cb()
-}
-
-let child_process = require('child_process');
-function cleanDir(){
-    child_process.exec('git checkout ./')
-    return gulp.src(`${projectPath}`,{allowEmpty:true})
-        .pipe(clean({allowEmpty:true}));
-}</code></pre><p>根据映射关系替换html里面的文件名 这边替换需要传入映射文件以及需要替换的html文件 ，映射文件中包含的扩展名必须都列出来 否则不会生效</p>
-<pre><code>function revHtml(){
-    return gulp.src([`${projectPath}ls/ls.json`,`${projectPath}*.html`])
-        .pipe(revCollector({
-            extMap:{
-                '.json':'.json',
-                '.jpg':'.jpg',
-                '.png':'.png',
-                '.plist':'.plist',
-                '.tmx':'.tmx',
-                '.ico':'.ico',
-            }
-        }))
-        .pipe(gulp.dest(`${projectPath}`));
-}
-exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changeProjectJson,revHtml));</code></pre><p><a href="https://github.com/xiongb/gulp/blob/master/gulpfile.js" target="_blank" rel="noopener">gulpfile</a></p>
-<script>
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -595,7 +563,7 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/">https://xiongb.github.io/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/</a>
+                    <a href="https://xiongb.github.io/2020/04/08/%E9%98%9F%E5%88%97js/">https://xiongb.github.io/2020/04/08/%E9%98%9F%E5%88%97js/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -633,8 +601,8 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/gulp-cocos2d-js/">
-                                    <span class="chip bg-color">gulp cocos2d-js</span>
+                                <a href="/tags/js-%E9%98%9F%E5%88%97-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">js 队列 循环队列 数据结构</span>
                                 </a>
                             
                         </div>
@@ -680,7 +648,7 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-06T20-39-28',
+        id: '2020-04-08T20-09-25',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -706,22 +674,28 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/08/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95js/">
+                <a href="/2020/04/08/%E6%A0%88js/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="排序算法js版">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="栈js">
                         
-                        <span class="card-title">排序算法js版</span>
+                        <span class="card-title">栈js</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            冒泡排序const bubbleSort = (arr) =&gt; {
-    if (arr.length &lt;= 1) return
-    for (let i = 0; i &lt; arr.length; i++) {
-  
+                            /**
+ * 基于链表实现的栈。
+ *
+ * Author: nameczz
+ */
+
+class Node {
+    constructor(element) {
+        this.element = element
+     
                         
                     </div>
                     <div class="publish-info">
@@ -739,8 +713,8 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js-javascript-%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">js javascript 算法</span>
+                    <a href="/tags/js-%E6%A0%88-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">js 栈 数据结构</span>
                     </a>
                     
                 </div>
@@ -754,35 +728,38 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/06/hexo/">
+                <a href="/2020/04/08/%E9%93%BE%E8%A1%A8js/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo git搭建个人博客">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="链表">
                         
-                        <span class="card-title">Hexo git搭建个人博客</span>
+                        <span class="card-title">链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装node.js安装完成 node -v 查看版本号 node -v  
-####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像
-npm config set registry https://registry.npm.taoba
+                            
+1) 单链表反转
+2) 链表中环的检测
+3) 两个有序的链表合并
+4) 删除链表倒数第n个结点
+5) 求链表的中间结点
+
+class Node {
+    constructor(element) {
+        this.eleme
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hexo-%E7%9B%B8%E5%85%B3/" class="post-category">
-                                    Hexo 相关
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiongbo
                             
                         </span>
                     </div>
@@ -790,8 +767,8 @@ npm config set registry https://registry.npm.taoba
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/js-%E7%AE%97%E6%B3%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">js 算法 数据结构</span>
                     </a>
                     
                 </div>

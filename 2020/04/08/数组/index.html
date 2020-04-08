@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="gulp构建cocos2d-js, 风の记忆">
+    <meta name="keywords" content="数组, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>gulp构建cocos2d-js | 风の记忆</title>
+    <title>数组 | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">gulp构建cocos2d-js</h1>
+                    <h1 class="description center-align post-title">数组</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/gulp-cocos2d-js/">
-                                <span class="chip bg-color">gulp cocos2d-js</span>
+                            <a href="/tags/js-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">js 数据结构</span>
                             </a>
                         
                     </div>
@@ -389,14 +389,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-08
                 </div>
                 
 
@@ -411,147 +411,238 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>###安装gulp<br>安装gulp命令行工具 </p>
-<pre><code>    npm install --global gulp-cli</code></pre><p>创建目录并初始化package.json</p>
-<pre><code>npx mkdir {my-project}
-cd {my-project}
-npm init</code></pre><p>安装 gulp，作为开发时依赖项</p>
-<pre><code>npm install --save-dev gulp
-gulp --version</code></pre><p>在项目根目录下创建gulpfile.js文件  </p>
-<p>安装插件  </p>
-<pre><code>npm i --save-dev gulp-concat  //合并js文件 
-npm i --save-dev gulp-clean   // 清理某个目录 
-npm i --save-dev gulp-uglify   //压缩js代码 
-npm i --save-dev gulp-uglify-es   //压缩js代码  支持es6语法
-npm i --save-dev gulp-rev   //给资源文件生成映射关系 md5码 
-npm i --save-dev gulp-rev-collector  //根据生成的映射关系替换html中的文件名
-npm i --save-dev gulp-sourcemaps  //生成sourcemap插件 
-npm i --save-dev gulp-del  //删除文件</code></pre><p>在文件中导入插件 </p>
-<pre><code> const {parallel,series ,src,dest } = require('gulp');
- const gulp = require('gulp');
- const uglify = require('gulp-uglify-es').default;
- //const uglify = require('gulp-uglify');
- const rename = require('gulp-rename');
- const concat = require('gulp-concat');
- const revCollector = require('gulp-rev-collector');
- const rev = require('gulp-rev');   // 生成映射
- const clean = require('gulp-clean');
- const sourcemap = require('gulp-sourcemaps');
- const babel = require('gulp-babel');
- const del = require('del')</code></pre><p>根据project.json 和moduleConfig.json文件读取引擎目录下的所有js文件</p>
-<pre><code>let fs = require('fs');
-let cacheModule = {}
-let prex = './frameworks/cocos2d-html5/'
-function readJson(path){
-    let str = fs.readFileSync(path,'utf8');
-    let json = JSON.parse(str);
-    return json;
+                <p>与 Java 、PHP 等语言不同，在 JavaScript 中，数组其实是一种特殊的对象。</p>
+<h4 id="数组的创建与读写"><a href="#数组的创建与读写" class="headerlink" title="数组的创建与读写"></a>数组的创建与读写</h4><p>以下两种方式都可创建数组：</p>
+<pre><code>// 字面量方式,常用
+var num = [1,5,6,10];
+print(num.length);   // 4
+
+// 构造函数方式
+var num = new Array(1,5,6,10);
+print(num.length);    // 4</code></pre><p>值得注意的是，JavaScript 中的数组数据可以是不同类型，它的语法相对宽松，例如可以指定不同类型数据<code>var example = [1,"Mike",true,null];</code>另外，可以通过<code>Array.isArray()</code>来判断一个对象是否是数组，例如：</p>
+<pre><code>var num = [1,5,6,10];
+print(Array.isArray(num));        // true</code></pre><p>如何读写数组呢？可以使用循环。</p>
+<pre><code>var num = [1,5,6,10];
+for (var i = 0; i &lt; num.length; i++) {
+  console.log(num[i]+" ");
+}</code></pre><h4 id="数组的深复制与浅复制"><a href="#数组的深复制与浅复制" class="headerlink" title="数组的深复制与浅复制"></a>数组的深复制与浅复制</h4><p>当我们把数组赋给另外一个数组，然后改变其中一个数组的值，另一数组也会随之改变，这就是数组的浅复制。而深复制指的就是不改变原来的数组而去创建一个新的数组，这种情况是经常使用的，为了不破坏原数组。下面的代码展示了这两种复制</p>
+<pre><code>// 浅复制
+var num = [1,2,3,4,5];
+var newNum = num;
+num[0] = 10;
+console.log(newNum[0]);  // 10
+
+// 深复制
+function copy (arr1,arr2) {
+  for(var i=0;i&lt;arr1.length;i++){
+    arr2[i] = arr1[i];
+  }
 }
+var num = [1,5,6,7,9];
+var newNum = [];
+copy(num,newNum);
+num[0] = 10;
+console.log(newNum[0]);    // 仍然为 1</code></pre><h4 id="存取函数"><a href="#存取函数" class="headerlink" title="存取函数"></a>存取函数</h4><p>JavaScript 提供了一组用来访问数组元素的函数，叫存取函数。最常用的存取函数就是 indexOf() 函数，该函数返回指定查找的值在目标值中是否存在，如果存在，返回该值在数组中的索引，不存在则返回 -1。</p>
+<pre><code>var word = ["A","B","C","D"];
+var result = word.indexOf("A");
+console.log(result);    // 0
+var test = word.indexOf("F");
+console.log(test);   // -1</code></pre><p>除此之外，还有 join 和 toString 函数，concat 和 splice 函数。前两个函数可以将数组转化为字符串，后面两个函数可以通过已有的数组创建新数组，其中 concat 方法通过合并多个数组来形成新数组，而 splice 方法是截取一个数组的子集作为一个新数组。它们的使用示例如下</p>
+<pre><code>var arr = ["Mike","John","Hexo"];
+console.log(arr.join());   // Mike,John,Hexo
+console.log(arr.toString());   // Mike,John,Hexo
 
-function readAllFiles(){
-    let projectCfg = readJson('./project.json');
-    let moduleConfig = readJson(prex + 'moduleConfig.json');
-    let projectModule = projectCfg['modules'];
-    let files = new Array();
-    files.push(prex + moduleConfig['bootFile']);
-
-    for(let i =0;i &lt; projectModule.length;i++){
-        let name = projectModule[i];
-        let module = moduleConfig['module'][name];
-        if(module){
-            if (cacheModule[name]) continue ;
-            cacheModule[name] = 1;
-            for(let j = 0;j &lt; module.length;j++){
-                let testname = module[j];
-                if (cacheModule[testname]) continue;
-                cacheModule[testname] = 1;
-                if(module[j].indexOf('.js') !== -1){
-                    files.push(prex+module[j])
-                }else {
-                    getFilesFromModule(files,moduleConfig['module'],module[j])
-                }
-            }
-        }
-    }
-
-    for (let i = 0;i &lt; projectCfg.jsList.length;i++){
-        files.push(projectCfg.jsList[i])
-    }
-    files.push('./game.min.js');
-    return files;
+var arr1 = [1,10,"Mike"];
+var arr2 = [8,7,6];
+var cat = arr1.concat(arr2);
+console.log(cat);    // [1, 10, "Mike", 8, 7, 6]
+var num = [1,2,3,4,5,6,7];
+var a = num.splice(3,2);     // 3 表示索引，2 表示删除 2 个
+console.log(num);      // [1, 2, 3, 6, 7]    </code></pre><h4 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h4><p>不去引用数组中的某个元素，就能改变数组内容，这种函数称它为可变函数。</p>
+<h6 id="push-和-unshift-、pop-和-shift"><a href="#push-和-unshift-、pop-和-shift" class="headerlink" title="push() 和 unshift()、pop() 和 shift()"></a>push() 和 unshift()、pop() 和 shift()</h6><p>push() 方法可以在数组末尾添加元素，而 unshift() 方法可以在数组开头添加元素；相对应的，pop 可以删除数组末尾的元素，而 shift 删除数组的第一个元素。</p>
+<pre><code>var nums = [9,58,15,16,23];
+nums.push(111);
+console.log(nums);   // 9, 58, 15, 16, 23, 111
+nums.unshift(1);
+console.log(nums);   // 1, 9, 58, 15, 16, 23, 111
+nums.pop();
+console.log(nums);   // 1, 9, 58, 15, 16, 23
+nums.shift();
+console.log(nums);   // 9, 58, 15, 16, 23</code></pre><h6 id="splice-、sort-、reverse"><a href="#splice-、sort-、reverse" class="headerlink" title="splice()、sort()、reverse()"></a>splice()、sort()、reverse()</h6><p>前面提到的 splice 不仅可以用来删除元素，还可以添加元素进数组。用 sort 可以为数组排序，reverse 将数组内的元素翻转。</p>
+<pre><code>var num = [98,99,100,101];
+num.splice(1,0,89);     // 1 表示索引，0 表示不删除元素，89 表示将 89 这个元素添加进数组
+console.log(num);    // 98, 89, 99, 100, 101
+num.reverse();
+console.log(num);    //  101, 100, 99, 89, 98</code></pre><p>关于 sort 方法非常有意思，它只能对那些字符串类型的元素排列得比较准确，但如果是数字，结果就不那么令人满意了。看看例子.</p>
+<pre><code>var str = ["hello","client","zero"];
+str.sort();
+console.log(str);     // ["client", "hello", "zero"]  按照字母 a-z 排列准确
+var nums = [1,200,51,66,88];
+nums.sort();
+console.log(nums);   // [1, 200, 51, 66, 88]  有趣的事情来了，因为 200 的 2 比 51 的 5 先，所以 200 排在 51 前头</code></pre><p>那如何解决这种排序的错误呢？方法就是在调用 sort() 的时候传入一个函数，该函数可以比较出大小。</p>
+<pre><code>function compare(num1,num2){
+  return num1 - num2;
 }
-
-function getFilesFromModule(files,module,str) {
-    if (module[str]){
-        let modules = module[str];
-        for (let i = 0;i &lt; modules.length;i++){
-            let name = modules[i];
-            if (cacheModule[name]) continue ;
-            cacheModule[name] = 1;
-            if (name.indexOf('.js') !== -1){
-                files.push(prex+name)
-            } else {
-                getFilesFromModule(files,module,name)
-            }
-        }
-    }
-}</code></pre><p>打包js文件 且生成sourcemap</p>
-<pre><code>function concatJs() {
-    let files = readAllFiles();
-    let arr = [...files];
-    return src(arr)
-        //.pipe(babel())
-        .pipe(sourcemap.init())
-        .pipe(concat('game.min.js'))
-
-        .pipe(uglify())
-        .pipe(sourcemap.write('./') )
-        .pipe(dest(`./`))
-}</code></pre><p>给项目目录下所有文件生成对应的映射关系，排除掉map文件不需要生成 最终映射关系在ls.json文件里面</p>
-<pre><code>function revAllRes() {
-    return src([`./game.min.js`,`./res/**/*`,'!./**/*.map','!./res/data/*.json'],{base:'.'})
-        .pipe(rev())
-        .pipe(gulp.dest(`${projectPath}`))
-        .pipe(rev.manifest({
-            path: `ls.json`,
-            merge: true
-        }))
-        .pipe(gulp.dest(`${projectPath}/ls/`));
-}</code></pre><p>直接拷贝 不需要生产md5</p>
-<pre><code>function copyOther(){
-    return src(['./index.html','./project.json','./res/data/*.json'],{ base:'.' })
-        .pipe(gulp.dest(`${projectPath}`));
-}</code></pre><p>修改project.json里面的参数 </p>
-<pre><code>function changeProjectJson(cb){
-    let projectCfg = readJson(`${projectPath}project.json`);
-    delete projectCfg['modules'];
-    delete projectCfg['jsList'];
-    projectCfg['noCache'] = false;
-    fs.writeFileSync(`${projectPath}project.json`,JSON.stringify(projectCfg));
-    cb()
+var nums = [3,1,2,100,4,200];
+nums.sort(compare);
+console.log(nums);    // 1, 2, 3, 4, 100, 200</code></pre><p>可以看到，已经排序正确了，compare 函数就是利用了两数相减，如果结果为正，那么被减数大于减数，如果结果为 0，则两数相等，而如果结果为负，说明被减数小于减数。</p>
+<h4 id="迭代器方法"><a href="#迭代器方法" class="headerlink" title="迭代器方法"></a>迭代器方法</h4><p>迭代函数通过对数组中的元素逐个应用，来操作返回相应的值。</p>
+<h6 id="不返回新数组的-forEach-、every-、some-、reduce"><a href="#不返回新数组的-forEach-、every-、some-、reduce" class="headerlink" title="不返回新数组的 forEach() 、every()、some()、reduce()"></a>不返回新数组的 forEach() 、every()、some()、reduce()</h6><pre><code>// 用 forEach 开方
+function square(num) {
+    console.log(num,num*num);
 }
-
-let child_process = require('child_process');
-function cleanDir(){
-    child_process.exec('git checkout ./')
-    return gulp.src(`${projectPath}`,{allowEmpty:true})
-        .pipe(clean({allowEmpty:true}));
-}</code></pre><p>根据映射关系替换html里面的文件名 这边替换需要传入映射文件以及需要替换的html文件 ，映射文件中包含的扩展名必须都列出来 否则不会生效</p>
-<pre><code>function revHtml(){
-    return gulp.src([`${projectPath}ls/ls.json`,`${projectPath}*.html`])
-        .pipe(revCollector({
-            extMap:{
-                '.json':'.json',
-                '.jpg':'.jpg',
-                '.png':'.png',
-                '.plist':'.plist',
-                '.tmx':'.tmx',
-                '.ico':'.ico',
-            }
-        }))
-        .pipe(gulp.dest(`${projectPath}`));
+var num = [1,2,3,4,5];
+num.forEach(square);
+console.log(num);
+/*  1 1
+    2 4
+    3 9
+    4 16
+    5 25
+*/</code></pre><pre><code>/*
+every() 返回值为布尔类型，对于应用的所有元素，该函数返回 true，则该方法返回 true
+*/
+function isEven(num){
+  return num % 2 == 0;
 }
-exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changeProjectJson,revHtml));</code></pre><p><a href="https://github.com/xiongb/gulp/blob/master/gulpfile.js" target="_blank" rel="noopener">gulpfile</a></p>
+var num = [2,4,6,8,10];
+var even = num.every(isEven);
+if(even){
+  console.log("所有的数字都是偶数");
+}else{
+  console.log("不是所有的数字都是偶数");
+}</code></pre><pre><code>/*
+some() 与 every() 的不同就是只要有一个元素使改函数返回 true ，那么该方法就返回 true
+*/
+function isEven(num){
+  return num % 2 == 0;
+}
+var num = [1,2,3,4,5,6,7,8];
+var someEven = num.some(isEven);
+if(someEven){
+  console.log("有些数字是偶数");
+}else{
+  console.log("没有数字是偶数");
+}</code></pre><pre><code>/*
+reduce() 有两个功能，一是可以对数组元素进行求和，二是将数组元素连接成字符串。
+*/
+fucntion add(num1,num2){
+  return num1 + num2;
+}
+var num = [1,2,3,4];
+var sum = num.reduce(add);
+console.log(sum);    // 10
+
+function concat(str,i) {
+  return str + i;
+}
+var words = ["I am ","a ","coder "];
+var re = words.reduce(concat);
+console.log(re);     // I am a coder</code></pre><h6 id="返回新数组的-map-和-filter"><a href="#返回新数组的-map-和-filter" class="headerlink" title="返回新数组的 map() 和 filter()"></a>返回新数组的 map() 和 filter()</h6><p>map 的作用与 forEach 是一样的，区别就是 map 函数返回的是一个新数组。</p>
+<pre><code>function addFive(grade){
+  return grade += 5;
+}
+var grade = [77,82,88,95,90];
+var result = grade.map(addFive);
+console.log(result);     // 82, 87, 93, 100, 95</code></pre><p>而 filter 和 every 相似，区别在于当所有的元素使改函数为 true 时，它并不返回布尔类型，而是返回一个新数组。下面这个例子十分有趣，它随机产生10个 0 到 100 的数字作为分数，然后把大于 60 的及格分数筛选出来。</p>
+<pre><code>function passing(num){
+  return num &gt;= 60;
+}
+var grades = [];
+for(var i = 0;i &lt; 11;i++){
+  grade[i] = Math.floor(Math.random() * 101);
+}
+var pass = grades.filter(passing);
+console.log("随机产生的 10 个同学的分数为：");
+console.log(grades)；
+console.log("及格的分数有：");
+console.log(pass)；</code></pre><p>上述代码的输出结果为</p>
+<blockquote>
+<p>随机产生的 10 个同学的分数为：<br>21, 4, 89, 45, 5, 51, 71, 7, 46, 53, 47<br>及格的分数有：<br>89, 71</p>
+</blockquote>
+<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><p>JavaScript 可以通过在数组里在嵌套一个数组来形成二维数组。</p>
+<pre><code>var grades = [
+  [88,86,82],
+  [91,82,83],
+  [77,72,79],
+  [86,80,82]
+];
+console.log(grades[1][2]);    // 83</code></pre><h4 id="处理二维数组"><a href="#处理二维数组" class="headerlink" title="处理二维数组"></a>处理二维数组</h4><p>对于二维数组的处理可以分为两种，一种按列访问，一种是按行访问。<br>按列访问，外层循环对应行，内层循环对应列。例如，上述的数组，每一行对应一个学生三门科目的成绩记录，可以通过相加所有成绩，然后除以科目数来得到该生的平均成绩。</p>
+<pre><code>var grades = [
+  [88,86,82],
+  [91,82,83],
+  [77,72,79],
+  [86,80,82]
+];
+var total = 0;
+var average = 0.0;
+for(var row = 0;row&lt;grades.length;++row){
+  for(var col = 0;col&lt;grades[row].length;++col){
+    total += grades[row][col];
+  }
+  average = total/grades[row].length;
+  console.log("student "+parseInt(row+1)+" average: "+average.toFixed(2));   // toFixed 表示按照 2 位来保留小数
+  total = 0;
+  average = 0.0;
+}</code></pre><p>上述代码的输出结果为</p>
+<blockquote>
+<p>student 1 average: 85.33<br>student 2 average: 85.33<br>student 3 average: 76.00<br>student 4 average: 82.67</p>
+</blockquote>
+<p>对于按行访问，则外层循环对应列，内层循环对应行，例如还是上述数组，现在的数组表示一个学生三场考试四门科目的各科分数，我们来求每场考试的平均成绩</p>
+<pre><code>var grades = [
+  [88,86,82],
+  [91,82,83],
+  [77,72,79],
+  [86,80,82]
+];
+var total = 0;
+var average = 0.0;
+//这里假设每场考试的科目都一样，所以可以通过grades[0].length来获取考试数量
+for(var col = 0;col &lt;grades[0].length;++col ){
+  for(var row= 0;row&lt;grades.length;++row){
+    total += grades[row][col];
+  }
+  average = total/grades.length;
+  console.log("exam "+parseInt(col +1)+" average: "+average.toFixed(2));
+  total = 0;
+  average = 0.0;
+}</code></pre><p>输出结果为：</p>
+<blockquote>
+<p>exam 1 average: 85.50<br>exam 2 average: 80.00<br>exam 3 average: 81.50</p>
+</blockquote>
+<p>其实只要调整 for 循环的顺序就可以控制是按行还是按列来输出，此外，JavaScript 还可以处理一些参差不齐的数组，比如一个二维数组中的数组，有的是两个元素，有的是四个元素，并不是都相同，在这种情况下，JavaScript 依然可以处理运行而不报错，这是因为不管多或少，都可以通过 length 属性来计算。</p>
+<h4 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h4><p>如果你有阅读到这里，你应该可以发现上面的所有例子里数据类型都是基本数据类型，不是数字就是字符串。对象数组，顾名思义，就是数组里面的元素可以是对象，这个与 java 的语法很相似，基本上所有的编程语言都是相通的。看看下面这个例子：</p>
+<pre><code>function point(x,y){
+  this.x = x;
+  this.y = y;
+}
+function show(arr){
+  for(var i=0;i&lt;arr.length;i++){
+    console.log(arr[i].x + ", "+arr[i].y);
+  }
+}
+var p1 = new Point(1,2);
+var p2 = new Point(2,4);
+var p3 = new Point(8,1);
+var p4 = new Point(2,9);
+var point = [p1,p2,p3,p4];
+for(var i=0;i&lt;point.lengh;i++){
+  console.log("Point "+parseInt(i+1)+": "+point[i].x+", "+point[i].y);
+}</code></pre><p>上述程序的输出结果为：</p>
+<blockquote>
+<p>Point 1: 1, 2<br>Point 2: 2, 4<br>Point 3: 8, 1<br>Point 4: 2, 9</p>
+</blockquote>
+<p>也可以用之前的 push() 等操作方法来操作对象数组</p>
+<pre><code>var p5 = new Point(11,13);
+point.push(p5);
+console.log("添加了 p5 后：");
+show(point);     
+point.shift();
+console.log("删除第一个元素后：")
+show(point);</code></pre><p>输出结果为：</p>
+<blockquote>
+<p>添加了 p5 后：<br>1,2<br>2,4<br>8,1<br>2,9<br>11,13<br>删除第一个元素后：<br>2,4<br>8,1<br>2,9<br>11,13</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -595,7 +686,7 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/">https://xiongb.github.io/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/</a>
+                    <a href="https://xiongb.github.io/2020/04/08/%E6%95%B0%E7%BB%84/">https://xiongb.github.io/2020/04/08/%E6%95%B0%E7%BB%84/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -633,8 +724,8 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/gulp-cocos2d-js/">
-                                    <span class="chip bg-color">gulp cocos2d-js</span>
+                                <a href="/tags/js-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">js 数据结构</span>
                                 </a>
                             
                         </div>
@@ -680,7 +771,7 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-06T20-39-28',
+        id: '2020-04-08T20-05-13',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -706,22 +797,28 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/08/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95js/">
+                <a href="/2020/04/08/%E9%93%BE%E8%A1%A8js/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="排序算法js版">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="链表">
                         
-                        <span class="card-title">排序算法js版</span>
+                        <span class="card-title">链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            冒泡排序const bubbleSort = (arr) =&gt; {
-    if (arr.length &lt;= 1) return
-    for (let i = 0; i &lt; arr.length; i++) {
-  
+                            
+1) 单链表反转
+2) 链表中环的检测
+3) 两个有序的链表合并
+4) 删除链表倒数第n个结点
+5) 求链表的中间结点
+
+class Node {
+    constructor(element) {
+        this.eleme
                         
                     </div>
                     <div class="publish-info">
@@ -739,8 +836,8 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js-javascript-%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">js javascript 算法</span>
+                    <a href="/tags/js-%E7%AE%97%E6%B3%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">js 算法 数据结构</span>
                     </a>
                     
                 </div>
@@ -754,35 +851,32 @@ exports.default = series(cleanDir,concatJs,revAllRes,copyOther,parallel(changePr
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/06/hexo/">
+                <a href="/2020/04/08/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BEjs%E7%89%88/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo git搭建个人博客">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="二分查找js版">
                         
-                        <span class="card-title">Hexo git搭建个人博客</span>
+                        <span class="card-title">二分查找js版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装node.js安装完成 node -v 查看版本号 node -v  
-####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像
-npm config set registry https://registry.npm.taoba
+                            ###数组必须有序不存在重复,查找target的位置 
+const biaryFind = (sortedArr, target) =&gt; {
+    if (sortedArr.length === 0) return -1
+    
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hexo-%E7%9B%B8%E5%85%B3/" class="post-category">
-                                    Hexo 相关
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiongbo
                             
                         </span>
                     </div>
@@ -790,8 +884,8 @@ npm config set registry https://registry.npm.taoba
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-%E7%AE%97%E6%B3%95-js/">
+                        <span class="chip bg-color">二分查找 算法 js</span>
                     </a>
                     
                 </div>

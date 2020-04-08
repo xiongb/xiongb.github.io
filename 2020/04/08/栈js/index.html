@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="test, 风の记忆">
+    <meta name="keywords" content="栈js, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>test | 风の记忆</title>
+    <title>栈js | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">test</h1>
+                    <h1 class="description center-align post-title">栈js</h1>
                 </div>
             </div>
         </div>
@@ -371,9 +371,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/js-%E6%A0%88-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">js 栈 数据结构</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -385,14 +389,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-04
+                    2020-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-04
+                    2020-04-08
                 </div>
                 
 
@@ -407,7 +411,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <pre><code>/**
+ * 基于链表实现的栈。
+ *
+ * Author: nameczz
+ */
+
+class Node {
+    constructor(element) {
+        this.element = element
+        this.next = null
+    }
+}
+
+class StackBasedLinkedList {
+    constructor() {
+        this.top = null
+    }
+    push(value) {
+        const node = new Node(value)
+        if (this.top === null) {
+            this.top = node
+        } else {
+            node.next = this.top
+            this.top = node
+        }
+    }
+    pop() {
+        if (this.top === null) {
+            return -1
+        }
+        const value = this.top.element
+        this.top = this.top.next
+        return value
+    }
+    // 为了实现浏览器前进后退
+    clear() {
+        this.top = null
+    }
+    display() {
+        if (this.top !== null) {
+            let temp = this.top
+            while (temp !== null) {
+                console.log(temp.element)
+                temp = temp.next
+            }
+        }
+    }
+}
+// Test
+const newStack = new StackBasedLinkedList()
+newStack.push(1)
+newStack.push(2)
+newStack.push(3)
+// 获取元素
+let res = 0
+console.log('-------获取pop元素------')
+while (res !== -1) {
+    res = newStack.pop()
+    console.log(res)
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -450,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/04/test/">https://xiongb.github.io/2020/04/04/test/</a>
+                    <a href="https://xiongb.github.io/2020/04/08/%E6%A0%88js/">https://xiongb.github.io/2020/04/08/%E6%A0%88js/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -487,7 +550,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/js-%E6%A0%88-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">js 栈 数据结构</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -531,7 +598,7 @@
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-04T17-29-11',
+        id: '2020-04-08T20-12-23',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -557,35 +624,29 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/06/hexo/">
+                <a href="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo git搭建个人博客">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二叉树遍历">
                         
-                        <span class="card-title">Hexo git搭建个人博客</span>
+                        <span class="card-title">二叉树遍历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装node.js安装完成 node -v 查看版本号 node -v  
-####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像
-npm config set registry https://registry.npm.taoba
+                            ###二叉树    本身是有序树；    树中包含的各个节点的度不能超过 2，即只能是 0、1 或者 2；###二叉树性质    二叉树中，第 i 层最多有 2^(i-1) 个结点。    如果二叉树的深度为 K，那么此二叉树最多有 2K-
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hexo-%E7%9B%B8%E5%85%B3/" class="post-category">
-                                    Hexo 相关
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiongbo
                             
                         </span>
                     </div>
@@ -593,8 +654,8 @@ npm config set registry https://registry.npm.taoba
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/js-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">js 数据结构 算法</span>
                     </a>
                     
                 </div>
@@ -605,30 +666,36 @@ npm config set registry https://registry.npm.taoba
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/04/test/">
+                <a href="/2020/04/08/%E9%98%9F%E5%88%97js/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="test">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="队列">
                         
-                        <span class="card-title">test</span>
+                        <span class="card-title">队列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            /**
+ * 基于链表实现的队列。
+ *
+ * Author: nameczz
+ */
+
+class Node {
+    constructor(element) {
+        this.element = element
+    
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
                             </span>
                         <span class="publish-author">
                             
@@ -638,7 +705,14 @@ npm config set registry https://registry.npm.taoba
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js-%E9%98%9F%E5%88%97-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">js 队列 循环队列 数据结构</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
