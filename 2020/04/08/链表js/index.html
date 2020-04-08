@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo git搭建个人博客, 风の记忆">
+    <meta name="keywords" content="链表js, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo git搭建个人博客 | 风の记忆</title>
+    <title>链表js | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo git搭建个人博客</h1>
+                    <h1 class="description center-align post-title">链表js</h1>
                 </div>
             </div>
         </div>
@@ -371,25 +371,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Hexo-%E7%9B%B8%E5%85%B3/" class="post-category">
-                                Hexo 相关
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -398,14 +385,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
@@ -420,40 +407,224 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><h4 id="安装完成-node-v-查看版本号"><a href="#安装完成-node-v-查看版本号" class="headerlink" title="安装完成 node -v 查看版本号"></a>安装完成 node -v 查看版本号</h4><pre class=" language-bash"><code class="language-bash"> node -v  </code></pre>
-<p>####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org</code></pre>
-<p>####可通过nrm ls查看所有镜像地址</p>
-<pre class=" language-bash"><code class="language-bash">nrm <span class="token function">ls</span></code></pre>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><h4 id="安装成功后设置用户名邮箱"><a href="#安装成功后设置用户名邮箱" class="headerlink" title="安装成功后设置用户名邮箱"></a>安装成功后设置用户名邮箱</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"your name"</span>
-<span class="token function">git</span> config --global user.email <span class="token string">"your email"</span></code></pre>
-<p>####配置SSH key  </p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮件地址"</span>   // 生成key</code></pre>
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
-<h4 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com <span class="token comment" spellcheck="true"># 注意邮箱地址不用改  //验证成功</span></code></pre>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><pre class=" language-bash"><code class="language-bash">    <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre>
-<h4 id="新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件"><a href="#新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件" class="headerlink" title="新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件"></a>新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件</h4><pre class=" language-bash"><code class="language-bash">$ hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">npm</span> <span class="token function">install</span></code></pre>
-<p>####hexo本地部署  </p>
-<pre class=" language-bash"><code class="language-bash">    hexo clean  清理目录
-    hexo g 生成静态文件 
-    hexo s 启动本地服务器 
-    hexo d 发布到网站 （需要特殊配置）</code></pre>
-<p>###静态网页部署至github<br>####新建仓库<br>登陆自己的github 新建一个一个仓库 Repositories</p>
- <img src="/2020/04/06/hexo/1111.jpg" class="">
+                <p>####</p>
+<ul>
+<li>1) 单链表反转</li>
+<li>2) 链表中环的检测</li>
+<li>3) 两个有序的链表合并</li>
+<li>4) 删除链表倒数第n个结点</li>
+<li>5) 求链表的中间结点<br>####</li>
+</ul>
+<pre><code>class Node {
+    constructor(element) {
+        this.element = element
+        this.next = null
+    }
+}
 
-<p>插入图片时由于官方插件有问题 这里用了别人改过的</p>
-<pre><code>npm install https://github.com/7ym0n/hexo-asset-image --sa </code></pre><p>在Repositories name 输入 yourname.github.io,   yourname代表你自己github账号<br>待部署成功后可通过<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 访问你部署的网站<br>####配置git<br>####安装插件 </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-deployer-git</code></pre>
-<p>####修改_config.yml文件<br>打开网站目录的 _config.yml<br>移动到最低端，在deploy:后面写入内容  注意空格很重要，刚开始忽略了空格出现了问题</p>
-<pre><code>type: git  
-  repo: github仓库地址    
-  branch: master </code></pre><p>我的仓库地址    repo: <a href="mailto:git@github.com">git@github.com</a>:xiongb/xiongb.github.io.git</p>
-<p>####最后通过hexo d推送到github   可通过<a href="https://yourname.github.io访问了" target="_blank" rel="noopener">https://yourname.github.io访问了</a></p>
-<pre class=" language-bash"><code class="language-bash">hexo d</code></pre>
-<p> <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a><br> <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a><br> <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a><br> <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">github</a>.</p>
-<script>
+class LinkedList {
+    constructor() {
+        this.head = new Node('head')
+    }
+    // 根据value查找节点 
+    findByValue(item) {
+        let currentNode = this.head
+        while (currentNode !== null &amp;&amp; currentNode.element !== item) {
+            currentNode = currentNode.next
+        }
+        return currentNode === null ? -1 : currentNode
+    }
+    // 根据index查找节点 
+    findByIndex(index) {
+        let currentNode = this.head
+        let pos = 0
+        while (currentNode !== null &amp;&amp; pos !== index) {
+            currentNode = currentNode.next
+            pos++
+        }
+        return currentNode === null ? -1 : currentNode
+    }
+    // 指定元素向后插入
+    insert(newElement, element) {
+        const currentNode = this.findByValue(element)
+        if (currentNode === -1) {
+            console.log('未找到插入位置')
+            return
+        }
+        const newNode = new Node(newElement)
+        newNode.next = currentNode.next
+        currentNode.next = newNode
+    }
+    // 查找前一个
+    findPrev(item) {
+        let currentNode = this.head
+        while (currentNode.next !== null &amp;&amp; currentNode.next.element !== item) {
+            currentNode = currentNode.next
+        }
+        if (currentNode.next === null) {
+            return -1
+        }
+        return currentNode
+    }
+    // 根据值删除
+    remove(item) {
+        const desNode = this.findByValue(item)
+        if (desNode === -1) {
+            console.log('未找到元素')
+            return
+        }
+        const prevNode = this.findPrev(item)
+        prevNode.next = desNode.next
+    }
+    // 遍历显示所有节点
+    display() {
+        //先检查是否为环
+        if(this.checkCircle()) return false
+
+        let currentNode = this.head
+        while (currentNode !== null) {
+            console.log(currentNode.element)
+            currentNode = currentNode.next
+        }
+    }
+
+    // 尾插法 反转单链表
+    reverseList() {
+        const root = new Node('head')
+        let currentNode = this.head.next
+        while (currentNode !== null) {
+            const next = currentNode.next
+            currentNode.next = root.next
+            root.next = currentNode
+            currentNode = next
+        }
+        this.head = root
+    }
+
+    //增强尾插法可读性，便于初学者理解
+    reverseList1(){
+      //head节点即哨兵，作用就是使所有链表，
+      // 包括空链表的头节点不为null,并使对单链表的插入、删除操作不需要区分是否为空表或是否在第一个位置进行，
+      // 从而与其他位置的插入、删除操作一致
+      //所以反转链表的时候不需要带上head节点
+      let currentNode=this.head.next
+      //第一个节点头结点让其指向null
+      let previousNode=null
+      while(currentNode!==null){
+        //务必先保留下一节点的指针地址
+        let nextNode=currentNode.next
+        //第一次是null
+        currentNode.next=previousNode
+        //此时将previousNode赋值为当前节点，
+        // 那么下次循环的时候，方便下次的currentNode指向previousNode
+        previousNode=currentNode
+        //抬走，下一个！
+        currentNode=nextNode
+      }
+    //最后将反转好的链表加上头节点
+    this.head.next=previousNode
+    }
+
+    // 自己一开始瞎想的。差距啊
+    reverseList2() {
+        let currentNode = this.head.next
+        let reverseList = new LinkedList()
+        const tempArr = []
+        if (currentNode === null || currentNode.next === null) {
+            console.log('节点数小于3，不反转')
+            return
+        }
+        while (currentNode !== null) {
+            tempArr.push(currentNode)
+            currentNode = currentNode.next
+        }
+        for (let i = tempArr.length - 1; i &gt;= 0; i--) {
+            const key = i === tempArr.length - 1 ? 'head' : tempArr[i + 1].element
+            reverseList.insert(tempArr[i].element, key)
+        }
+        reverseList.display()
+        return reverseList
+    }
+    // 环验证
+    checkCircle() {
+        let fast = this.head.next
+        let slow = this.head
+        while (fast !== null &amp;&amp; fast.next !== null) {
+            fast = fast.next.next
+            slow = slow.next
+            if (slow === fast) return true
+        }
+        return false
+    }
+    // 删除倒数第k个节点
+    removeByIndexFromEnd(index) {
+        //务必先判断是否是 环链表
+        if(this.checkCircle()) return false
+        let pos = 1
+        this.reverseList()
+        let currentNode = this.head.next
+        while (currentNode !== null &amp;&amp; pos &lt; index) {
+            currentNode = currentNode.next
+            pos++
+        }
+        if (currentNode === null) {
+            console.log('无法删除最后一个节点或者该节点不存在')
+            return false
+        }
+        this.remove(currentNode.element)
+        this.reverseList()
+    }
+    // 求中间节点
+    findMiddleNode() {
+        let fast = this.head
+        let slow = this.head
+        while (fast.next !== null &amp;&amp; fast.next.next !== null) {
+            fast = fast.next.next
+            slow = slow.next
+        }
+        console.log(slow)
+        return slow
+    }
+}
+
+
+const mergeSortedLists = (listA, listB) =&gt; {
+    if (!listA) {
+        return listB
+    }
+    if (!listB) {
+        return listA
+    }
+
+    let a = listA
+    let b = listB
+    let resultList = undefined
+    if (a.element &lt; b.element) {
+        resultList = a
+        a = a.next
+    } else {
+        resultList = b
+        b = b.next
+    }
+    let currentNode = resultList
+    while (a !== null &amp;&amp; b !== null) {
+        if (a.element &lt; b.element) {
+            currentNode.next = a
+            a = a.next
+        } else {
+            currentNode.next = b
+            b = b.next
+        }
+        currentNode = currentNode.next
+    }
+
+    if (a != null) {
+        currentNode.next = a
+    } else {
+        currentNode.next = b
+    }
+    return resultList
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -496,7 +667,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/06/hexo/">https://xiongb.github.io/2020/04/06/hexo/</a>
+                    <a href="https://xiongb.github.io/2020/04/08/%E9%93%BE%E8%A1%A8js/">https://xiongb.github.io/2020/04/08/%E9%93%BE%E8%A1%A8js/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -533,11 +704,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -581,7 +748,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-06T16-14-40',
+        id: '2020-04-08T19-54-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -603,33 +770,81 @@ $ <span class="token function">npm</span> <span class="token function">install</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/">
+                <a href="/2020/04/08/%E9%93%BE%E8%A1%A8js/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="gulp构建cocos2d-js">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="链表js">
                         
-                        <span class="card-title">gulp构建cocos2d-js</span>
+                        <span class="card-title">链表js</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ###安装gulp安装gulp命令行工具 
-    npm install --global gulp-cli创建目录并初始化package.json
-npx mkdir {my-project}
-cd {my-project}
-npm i
+                            ####
+
+1) 单链表反转
+2) 链表中环的检测
+3) 两个有序的链表合并
+4) 删除链表倒数第n个结点
+5) 求链表的中间结点####
+
+class Node {
+    constructor(element) {
+        t
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiongbo
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/08/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BEjs%E7%89%88/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="二分查找js版">
+                        
+                        <span class="card-title">二分查找js版</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ###数组必须有序不存在重复,查找target的位置 
+const biaryFind = (sortedArr, target) =&gt; {
+    if (sortedArr.length === 0) return -1
+    
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -641,50 +856,10 @@ npm i
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/gulp-cocos2d-js/">
-                        <span class="chip bg-color">gulp cocos2d-js</span>
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">二分查找</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/04/test/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="test">
-                        
-                        <span class="card-title">test</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            xiongbo
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>

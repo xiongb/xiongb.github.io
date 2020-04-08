@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo git搭建个人博客, 风の记忆">
+    <meta name="keywords" content="排序算法js版, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo git搭建个人博客 | 风の记忆</title>
+    <title>排序算法js版 | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo git搭建个人博客</h1>
+                    <h1 class="description center-align post-title">排序算法js版</h1>
                 </div>
             </div>
         </div>
@@ -373,23 +373,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/js-javascript/">
+                                <span class="chip bg-color">js javascript</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Hexo-%E7%9B%B8%E5%85%B3/" class="post-category">
-                                Hexo 相关
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -398,14 +389,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-08
                 </div>
                 
 
@@ -420,40 +411,106 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><h4 id="安装完成-node-v-查看版本号"><a href="#安装完成-node-v-查看版本号" class="headerlink" title="安装完成 node -v 查看版本号"></a>安装完成 node -v 查看版本号</h4><pre class=" language-bash"><code class="language-bash"> node -v  </code></pre>
-<p>####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org</code></pre>
-<p>####可通过nrm ls查看所有镜像地址</p>
-<pre class=" language-bash"><code class="language-bash">nrm <span class="token function">ls</span></code></pre>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><h4 id="安装成功后设置用户名邮箱"><a href="#安装成功后设置用户名邮箱" class="headerlink" title="安装成功后设置用户名邮箱"></a>安装成功后设置用户名邮箱</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"your name"</span>
-<span class="token function">git</span> config --global user.email <span class="token string">"your email"</span></code></pre>
-<p>####配置SSH key  </p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮件地址"</span>   // 生成key</code></pre>
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
-<h4 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com <span class="token comment" spellcheck="true"># 注意邮箱地址不用改  //验证成功</span></code></pre>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><pre class=" language-bash"><code class="language-bash">    <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre>
-<h4 id="新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件"><a href="#新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件" class="headerlink" title="新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件"></a>新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件</h4><pre class=" language-bash"><code class="language-bash">$ hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">npm</span> <span class="token function">install</span></code></pre>
-<p>####hexo本地部署  </p>
-<pre class=" language-bash"><code class="language-bash">    hexo clean  清理目录
-    hexo g 生成静态文件 
-    hexo s 启动本地服务器 
-    hexo d 发布到网站 （需要特殊配置）</code></pre>
-<p>###静态网页部署至github<br>####新建仓库<br>登陆自己的github 新建一个一个仓库 Repositories</p>
- <img src="/2020/04/06/hexo/1111.jpg" class="">
+                <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre><code>const bubbleSort = (arr) =&gt; {
+    if (arr.length &lt;= 1) return
+    for (let i = 0; i &lt; arr.length; i++) {
+        let hasChange = false
+        for (let j = 0; j &lt; arr.length - i - 1; j++) {
+            if (arr[j] &gt; arr[j + 1]) {
+                const temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+                hasChange = true
+            }
+        }
+        // 如果false 说明所有元素已经到位
+        if (!hasChange) break
+    }
+    console.log(arr)
+}</code></pre><p>###插入排序</p>
+<pre><code>const insertionSort = (arr) =&gt; {
+    if (arr.length &lt;= 1) return
+    for (let i = 1; i &lt; arr.length; i++) {
+        const temp = arr[i]
+        let j = i - 1
+        // 若arr[i]前有大于arr[i]的值的化，向后移位，腾出空间，直到一个&lt;=arr[i]的值
+        for (j; j &gt;= 0; j--) {
+            if (arr[j] &gt; temp) {
+                arr[j + 1] = arr[j]
+            } else {
+                break
+            }
+        }
+        arr[j + 1] = temp
+    }
+    console.log(arr)
+}</code></pre><p>###选择排序</p>
+<pre><code>const selectionSort = (arr) =&gt; {
+    if (arr.length &lt;= 1) return
+    // 需要注意这里的边界, 因为需要在内层进行 i+1后的循环，所以外层需要 数组长度-1
+    for (let i = 0; i &lt; arr.length - 1; i++) {
+        let minIndex = i
+        for (let j = i + 1; j &lt; arr.length; j++) {
+            if (arr[j] &lt; arr[minIndex]) {
+                minIndex = j // 找到整个数组的最小值
+            }
+        }
+        const temp = arr[i]
+        arr[i] = arr[minIndex]
+        arr[minIndex] = temp
+    }
+    console.log(arr)
+}</code></pre><p>###快速排序 </p>
+<pre><code>const quickSort = (array,l,r) =&gt;{
+    if (l &gt;= r)  return;
+    let i =i,j = r, key = array[l];
+    while (i &lt; j){
+        while (i &lt; j &amp;&amp; array[j] &gt;= key){
+            j --;
+        } 
+        if (i &lt; j){
+            array[i] = array[j];
+            i++;
+        } 
+        while (i &lt; j &amp;&amp; array[i] &lt;= key){
+            i ++;
+        } 
+        if (i &lt; j){
+            array[j] = array[i];
+            j --;
+        } 
+        array[i] = key;
+        quickSort(array,l,i-1);
+        quickSort(array,l+1,r);
+    } 
+}</code></pre><p>###归并排序  先把数组分成单个一组 然后再两两合并 </p>
+<pre><code>const mergeArr = (left, right) =&gt; {
+    let temp = []
+    let leftIndex = 0
+    let rightIndex = 0
+    // 判断2个数组中元素大小，依次插入数组
+    while (left.length &gt; leftIndex &amp;&amp; right.length &gt; rightIndex) {
+        if (left[leftIndex] &lt;= right[rightIndex]) {
+            temp.push(left[leftIndex])
+            leftIndex++
+        } else {
+            temp.push(right[rightIndex])
+            rightIndex++
+        }
+    }
+    // 合并 多余数组
+    return temp.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
+}
 
-<p>插入图片时由于官方插件有问题 这里用了别人改过的</p>
-<pre><code>npm install https://github.com/7ym0n/hexo-asset-image --sa </code></pre><p>在Repositories name 输入 yourname.github.io,   yourname代表你自己github账号<br>待部署成功后可通过<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 访问你部署的网站<br>####配置git<br>####安装插件 </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-deployer-git</code></pre>
-<p>####修改_config.yml文件<br>打开网站目录的 _config.yml<br>移动到最低端，在deploy:后面写入内容  注意空格很重要，刚开始忽略了空格出现了问题</p>
-<pre><code>type: git  
-  repo: github仓库地址    
-  branch: master </code></pre><p>我的仓库地址    repo: <a href="mailto:git@github.com">git@github.com</a>:xiongb/xiongb.github.io.git</p>
-<p>####最后通过hexo d推送到github   可通过<a href="https://yourname.github.io访问了" target="_blank" rel="noopener">https://yourname.github.io访问了</a></p>
-<pre class=" language-bash"><code class="language-bash">hexo d</code></pre>
-<p> <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a><br> <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a><br> <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a><br> <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">github</a>.</p>
-<script>
+const mergeSort = (arr) =&gt; {
+    // 当任意数组分解到只有一个时返回。
+    if (arr.length &lt;= 1) return arr
+    const middle = Math.floor(arr.length / 2) // 找到中间值
+    const left = arr.slice(0, middle) // 分割数组
+    const right = arr.slice(middle)
+    // 递归 分解 合并
+    return mergeArr(mergeSort(left), mergeSort(right))
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -496,7 +553,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/06/hexo/">https://xiongb.github.io/2020/04/06/hexo/</a>
+                    <a href="https://xiongb.github.io/2020/04/08/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95js/">https://xiongb.github.io/2020/04/08/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95js/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -534,8 +591,8 @@ $ <span class="token function">npm</span> <span class="token function">install</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/js-javascript/">
+                                    <span class="chip bg-color">js javascript</span>
                                 </a>
                             
                         </div>
@@ -581,7 +638,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-06T16-14-40',
+        id: '2020-04-08T19-27-41',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -607,6 +664,54 @@ $ <span class="token function">npm</span> <span class="token function">install</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/04/08/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BEjs%E7%89%88/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="二分查找js版">
+                        
+                        <span class="card-title">二分查找js版</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ###数组必须有序不存在重复,查找target的位置 
+const biaryFind = (sortedArr, target) =&gt; {
+    if (sortedArr.length === 0) return -1
+    
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiongbo
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">二分查找</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/04/06/gulp%E6%9E%84%E5%BB%BAcocos2d-js/">
                     <div class="card-image">
                         
@@ -627,9 +732,9 @@ npm i
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -645,46 +750,6 @@ npm i
                         <span class="chip bg-color">gulp cocos2d-js</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/04/test/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="test">
-                        
-                        <span class="card-title">test</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            xiongbo
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
