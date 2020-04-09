@@ -24,7 +24,7 @@ const bubbleSort = (arr) => {
 }
 ````
 
-###插入排序
+### 插入排序
 ````
 const insertionSort = (arr) => {
     if (arr.length <= 1) return
@@ -45,7 +45,7 @@ const insertionSort = (arr) => {
 }
 ````
 
-###选择排序
+### 选择排序
 ````
 const selectionSort = (arr) => {
     if (arr.length <= 1) return
@@ -64,7 +64,7 @@ const selectionSort = (arr) => {
     console.log(arr)
 }
 ````
-###快速排序 
+### 快速排序 
 ````
 const quickSort = (array,l,r) =>{
     if (l >= r)  return;
@@ -91,7 +91,7 @@ const quickSort = (array,l,r) =>{
 }
 ````
 
-###归并排序  先把数组分成单个一组 然后再两两合并 
+### 归并排序  先把数组分成单个一组 然后再两两合并 
 ````
 const mergeArr = (left, right) => {
     let temp = []

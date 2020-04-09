@@ -3,7 +3,7 @@ title: 二分查找js版
 date: 2020-04-08 19:49:35
 tags: "二分查找 算法 js"
 ---
-###数组必须有序不存在重复,查找target的位置 
+### 数组必须有序不存在重复,查找target的位置 
 ````
 const biaryFind = (sortedArr, target) => {
     if (sortedArr.length === 0) return -1
@@ -23,7 +23,7 @@ const biaryFind = (sortedArr, target) => {
 }
 ````
 
-###查找第一个等于给定值
+### 查找第一个等于给定值
 ````
 const biaryFindFirst = (sortedArr, target) => {
     if (sortedArr.length === 0) return -1
@@ -45,7 +45,7 @@ const biaryFindFirst = (sortedArr, target) => {
 }
 ````
 
-###查找最后一个相等的数
+### 查找最后一个相等的数
 ````
 const biaryFindLast = (sortedArr, target) => {
     if (sortedArr.length === 0) return -1
@@ -66,7 +66,7 @@ const biaryFindLast = (sortedArr, target) => {
 }
 ````
 
-###查找第一个大于等于给定值的元素
+### 查找第一个大于等于给定值的元素
 ````
 const biaryFindFistBig = (sortedArr, target) => {
     if (sortedArr.length === 0) return -1
@@ -85,7 +85,7 @@ const biaryFindFistBig = (sortedArr, target) => {
 }
 ````
 
-###查找最后一个小于等于给定值的元素
+### 查找最后一个小于等于给定值的元素
 ````
 const biaryFindLastSmall = (sortedArr, target) => {
     if (sortedArr.length === 0) return -1

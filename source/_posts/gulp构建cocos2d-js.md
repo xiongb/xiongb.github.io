@@ -4,7 +4,7 @@ date: 2020-04-06 20:39:28
 tags: "gulp cocos2d-js"
 ---
 
-###安装gulp
+### 安装gulp
 安装gulp命令行工具 
 ````
     npm install --global gulp-cli
