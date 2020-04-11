@@ -396,7 +396,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-08
+                    2020-04-09
                 </div>
                 
 
@@ -427,8 +427,7 @@
         if (!hasChange) break
     }
     console.log(arr)
-}</code></pre><p>###插入排序</p>
-<pre><code>const insertionSort = (arr) =&gt; {
+}</code></pre><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><pre><code>const insertionSort = (arr) =&gt; {
     if (arr.length &lt;= 1) return
     for (let i = 1; i &lt; arr.length; i++) {
         const temp = arr[i]
@@ -444,8 +443,7 @@
         arr[j + 1] = temp
     }
     console.log(arr)
-}</code></pre><p>###选择排序</p>
-<pre><code>const selectionSort = (arr) =&gt; {
+}</code></pre><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><pre><code>const selectionSort = (arr) =&gt; {
     if (arr.length &lt;= 1) return
     // 需要注意这里的边界, 因为需要在内层进行 i+1后的循环，所以外层需要 数组长度-1
     for (let i = 0; i &lt; arr.length - 1; i++) {
@@ -460,8 +458,7 @@
         arr[minIndex] = temp
     }
     console.log(arr)
-}</code></pre><p>###快速排序 </p>
-<pre><code>const quickSort = (array,l,r) =&gt;{
+}</code></pre><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre><code>const quickSort = (array,l,r) =&gt;{
     if (l &gt;= r)  return;
     let i =i,j = r, key = array[l];
     while (i &lt; j){
@@ -483,8 +480,7 @@
         quickSort(array,l,i-1);
         quickSort(array,l+1,r);
     } 
-}</code></pre><p>###归并排序  先把数组分成单个一组 然后再两两合并 </p>
-<pre><code>const mergeArr = (left, right) =&gt; {
+}</code></pre><h3 id="归并排序-先把数组分成单个一组-然后再两两合并"><a href="#归并排序-先把数组分成单个一组-然后再两两合并" class="headerlink" title="归并排序  先把数组分成单个一组 然后再两两合并"></a>归并排序  先把数组分成单个一组 然后再两两合并</h3><pre><code>const mergeArr = (left, right) =&gt; {
     let temp = []
     let leftIndex = 0
     let rightIndex = 0
@@ -676,10 +672,9 @@ const mergeSort = (arr) =&gt; {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ###数组必须有序不存在重复,查找target的位置 
-const biaryFind = (sortedArr, target) =&gt; {
+                            数组必须有序不存在重复,查找target的位置const biaryFind = (sortedArr, target) =&gt; {
     if (sortedArr.length === 0) return -1
-    
+    let l
                         
                     </div>
                     <div class="publish-info">
@@ -724,11 +719,11 @@ const biaryFind = (sortedArr, target) =&gt; {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ###安装gulp安装gulp命令行工具 
+                            安装gulp安装gulp命令行工具 
     npm install --global gulp-cli创建目录并初始化package.json
 npx mkdir {my-project}
 cd {my-project}
-npm i
+npm init
                         
                     </div>
                     <div class="publish-info">

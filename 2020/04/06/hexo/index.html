@@ -405,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-09
                 </div>
                 
 
@@ -421,37 +421,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><h4 id="安装完成-node-v-查看版本号"><a href="#安装完成-node-v-查看版本号" class="headerlink" title="安装完成 node -v 查看版本号"></a>安装完成 node -v 查看版本号</h4><pre class=" language-bash"><code class="language-bash"> node -v  </code></pre>
-<p>####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org</code></pre>
-<p>####可通过nrm ls查看所有镜像地址</p>
-<pre class=" language-bash"><code class="language-bash">nrm <span class="token function">ls</span></code></pre>
+<h4 id="由于官方镜像国内访问较慢-安装成功后可设置使用淘宝镜像"><a href="#由于官方镜像国内访问较慢-安装成功后可设置使用淘宝镜像" class="headerlink" title="由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像"></a>由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org</code></pre>
+<h4 id="可通过nrm-ls查看所有镜像地址"><a href="#可通过nrm-ls查看所有镜像地址" class="headerlink" title="可通过nrm ls查看所有镜像地址"></a>可通过nrm ls查看所有镜像地址</h4><pre class=" language-bash"><code class="language-bash">nrm <span class="token function">ls</span></code></pre>
 <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><h4 id="安装成功后设置用户名邮箱"><a href="#安装成功后设置用户名邮箱" class="headerlink" title="安装成功后设置用户名邮箱"></a>安装成功后设置用户名邮箱</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"your name"</span>
 <span class="token function">git</span> config --global user.email <span class="token string">"your email"</span></code></pre>
-<p>####配置SSH key  </p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮件地址"</span>   // 生成key</code></pre>
+<h4 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h4><pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮件地址"</span>   // 生成key</code></pre>
 <p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
 <h4 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com <span class="token comment" spellcheck="true"># 注意邮箱地址不用改  //验证成功</span></code></pre>
 <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><pre class=" language-bash"><code class="language-bash">    <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre>
 <h4 id="新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件"><a href="#新建hexo工程：请执行下列命令，Hexo-将会在指定文件夹中新建所需要的文件" class="headerlink" title="新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件"></a>新建hexo工程：请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件</h4><pre class=" language-bash"><code class="language-bash">$ hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>
 $ <span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>
 $ <span class="token function">npm</span> <span class="token function">install</span></code></pre>
-<p>####hexo本地部署  </p>
-<pre class=" language-bash"><code class="language-bash">    hexo clean  清理目录
+<h4 id="hexo本地部署"><a href="#hexo本地部署" class="headerlink" title="hexo本地部署"></a>hexo本地部署</h4><pre class=" language-bash"><code class="language-bash">    hexo clean  清理目录
     hexo g 生成静态文件 
     hexo s 启动本地服务器 
     hexo d 发布到网站 （需要特殊配置）</code></pre>
-<p>###静态网页部署至github<br>####新建仓库<br>登陆自己的github 新建一个一个仓库 Repositories</p>
+<h3 id="静态网页部署至github"><a href="#静态网页部署至github" class="headerlink" title="静态网页部署至github"></a>静态网页部署至github</h3><h4 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h4><p>登陆自己的github 新建一个一个仓库 Repositories</p>
  <img src="/2020/04/06/hexo/1111.jpg" class="">
 
 <p>插入图片时由于官方插件有问题 这里用了别人改过的</p>
-<pre><code>npm install https://github.com/7ym0n/hexo-asset-image --sa </code></pre><p>在Repositories name 输入 yourname.github.io,   yourname代表你自己github账号<br>待部署成功后可通过<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 访问你部署的网站<br>####配置git<br>####安装插件 </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-deployer-git</code></pre>
-<p>####修改_config.yml文件<br>打开网站目录的 _config.yml<br>移动到最低端，在deploy:后面写入内容  注意空格很重要，刚开始忽略了空格出现了问题</p>
+<pre><code>npm install https://github.com/7ym0n/hexo-asset-image --sa </code></pre><p>在Repositories name 输入 yourname.github.io,   yourname代表你自己github账号<br>待部署成功后可通过<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 访问你部署的网站 </p>
+<h4 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h4><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-deployer-git</code></pre>
+<h4 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h4><p>打开网站目录的 _config.yml<br>移动到最低端，在deploy:后面写入内容  注意空格很重要，刚开始忽略了空格出现了问题</p>
 <pre><code>type: git  
   repo: github仓库地址    
   branch: master </code></pre><p>我的仓库地址    repo: <a href="mailto:git@github.com">git@github.com</a>:xiongb/xiongb.github.io.git</p>
-<p>####最后通过hexo d推送到github   可通过<a href="https://yourname.github.io访问了" target="_blank" rel="noopener">https://yourname.github.io访问了</a></p>
-<pre class=" language-bash"><code class="language-bash">hexo d</code></pre>
+<h4 id="最后通过hexo-d推送到github-可通过https-yourname-github-io访问了"><a href="#最后通过hexo-d推送到github-可通过https-yourname-github-io访问了" class="headerlink" title="最后通过hexo d推送到github   可通过https://yourname.github.io访问了"></a>最后通过hexo d推送到github   可通过<a href="https://yourname.github.io访问了" target="_blank" rel="noopener">https://yourname.github.io访问了</a></h4><pre class=" language-bash"><code class="language-bash">hexo d</code></pre>
 <p> <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a><br> <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a><br> <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a><br> <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">github</a>.</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -619,11 +614,11 @@ $ <span class="token function">npm</span> <span class="token function">install</
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ###安装gulp安装gulp命令行工具 
+                            安装gulp安装gulp命令行工具 
     npm install --global gulp-cli创建目录并初始化package.json
 npx mkdir {my-project}
 cd {my-project}
-npm i
+npm init
                         
                     </div>
                     <div class="publish-info">
@@ -669,8 +664,7 @@ npm i
                     <div class="summary block-with-text">
                         
                             安装node.js安装完成 node -v 查看版本号 node -v  
-####由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像
-npm config set registry https://registry.npm.taoba
+由于官方镜像国内访问较慢,安装成功后可设置使用淘宝镜像npm config set registry https://registry.npm.taobao.org
                         
                     </div>
                     <div class="publish-info">
