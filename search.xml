@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>leetcode 1</title>
+      <link href="/2020/05/01/leetcode1/"/>
+      <url>/2020/05/01/leetcode1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><p>给定 nums = [2, 7, 11, 15], target = 9</p><p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p><h3 id="js版本"><a href="#js版本" class="headerlink" title="js版本"></a>js版本</h3><pre><code>    var twoSum = function(nums,target){        var temp,idx;        var map = {};        for(let i =0 ;i &lt; nums.length;i++){            temp = target - nums[i];            if(map[temp] !== undefined){                return [i,map[temp]];            }else{                map[num[i]] = i;            }        }    }</code></pre><h3 id="golang版本"><a href="#golang版本" class="headerlink" title="golang版本"></a>golang版本</h3><pre><code>    func twoSum(nums[] int,target int) []int{        maps :=make(map[int] int)        result := make([] int,2)        for index,num :=range nums{            _,isTrue :=maps[target - num]            if(isTrue){                result[0] = maps[target-num]                result[1] = index            }else{                maps[num] = index            }        }        return result    }</code></pre><h3 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2. 两数相加"></a>2. 两数相加</h3><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p><p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p><p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p>示例：</p><p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p><pre><code>function ListNode(val) {    this.val = val;    this.next = null;}var addTwoNumbers = function(l1, l2) {    let p = l1,q = l2;    let curr,head,temp = 0;    while (p || q){        let v1 = p ? p.val :0;        let v2 = q ? q.val :0;        let sum = v1 + v2 + temp;        temp = parseInt(sum/10);        if (!curr){            curr = new ListNode(sum%10);            head = curr;        }else {            curr.next = new ListNode(sum%10);            curr = curr.next;        }        if (p) p = p.next;        if (q) q = q.next;    }    if (temp &gt; 0){        curr.next = new ListNode(temp);    }    return head;}</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树遍历</title>
       <link href="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"/>
       <url>/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</url>

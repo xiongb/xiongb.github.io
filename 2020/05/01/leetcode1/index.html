@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二叉树遍历, 风の记忆">
+    <meta name="keywords" content="leetcode 1, 风の记忆">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二叉树遍历 | 风の记忆</title>
+    <title>leetcode 1 | 风の记忆</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二叉树遍历</h1>
+                    <h1 class="description center-align post-title">leetcode 1</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -389,14 +389,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-08
+                    2020-05-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-09
+                    2020-05-04
                 </div>
                 
 
@@ -411,108 +411,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><pre><code>本身是有序树；
-树中包含的各个节点的度不能超过 2，即只能是 0、1 或者 2；</code></pre><h3 id="二叉树性质"><a href="#二叉树性质" class="headerlink" title="二叉树性质"></a>二叉树性质</h3><pre><code>二叉树中，第 i 层最多有 2^(i-1) 个结点。
-如果二叉树的深度为 K，那么此二叉树最多有 2K-1 个结点。
-二叉树中，终端结点数（叶子结点数）为 n0，度为 2 的结点数为 n2，则 n0=n2+1。</code></pre><p>性质 3 的计算方法为：对于一个二叉树来说，除了度为 0 的叶子结点和度为 2 的结点，剩下的就是度为 1 的结点（设为 n1），那么总结点 n=n0+n1+n2。<br>同时，对于每一个结点来说都是由其父结点分支表示的，假设树中分枝数为 B，那么总结点数 n=B+1。而分枝数是可以通过 n1 和 n2 表示的，即 B=n1+2n2。所以，n 用另外一种方式表示为 n=n1+2n2+1。<br>两种方式得到的 n 值组成一个方程组，就可以得出 n0=n2+1。</p>
-<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><pre><code>如果二叉树中除了叶子结点，每个结点的度都为 2，则此二叉树称为满二叉树。图1即为满二叉树。</code></pre><p>下图是本节二叉树用例图1。<br>   {% asset_img 211.jpg %}</p>
-<p>满二叉树除了满足普通二叉树的性质，还具有以下性质：</p>
-<pre><code>满二叉树中第 i 层的节点数为 2n-1 个。
-深度为 k 的满二叉树必有 2k-1 个节点 ，叶子数为 2k-1。
-满二叉树中不存在度为 1 的节点，每一个分支点中都两棵深度相同的子树，且叶子节点都在最底层。
-具有 n 个节点的满二叉树的深度为 log2(n+1)。</code></pre><h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>如果二叉树中除去最后一层节点为满二叉树，且最后一层的结点依次从左到右分布，则此二叉树被称为完全二叉树。<br>   <img src="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/212.jpg" class=""></p>
-<p>如图 a) 所示是一棵完全二叉树，图 b) 由于最后一层的节点没有按照从左向右分布，因此只能算作是普通的二叉树。<br>完全二叉树除了具有普通二叉树的性质，它自身也具有一些独特的性质，比如说，n 个结点的完全二叉树的深度为 ⌊log2n⌋+1。<br>    ⌊log2​n⌋ 表示取小于 log2n的最大整数。例如，⌊log2^4 = 2，而 ⌊log2^5⌋ 结果也是 2。<br>对于任意一个完全二叉树来说，如果将含有的结点按照层次从左到右依次标号（如图 a)），对于任意一个结点 i ，完全二叉树还有以下几个结论成立：</p>
-<pre><code>当 i&gt;1 时，父亲结点为结点 [i/2] 。（i=1 时，表示的是根结点，无父亲结点）
-如果 2i&gt;n（总结点的个数） ，则结点 i 肯定没有左孩子（为叶子结点）；否则其左孩子是结点 2i 。
-如果 2i+1&gt;n ，则结点 i 肯定没有右孩子；否则右孩子是结点 2i+1 。</code></pre><p>普通二叉树转完全二叉树的方法很简单，只需给二叉树额外添加一些节点，将其”拼凑”成完全二叉树即可。如下图所示：<br>   <img src="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/213.jpg" class=""></p>
-<h3 id="二叉树的顺序存储结构"><a href="#二叉树的顺序存储结构" class="headerlink" title="二叉树的顺序存储结构"></a>二叉树的顺序存储结构</h3><pre><code>二叉树的存储结构有两种，分别为顺序存储和链式存储
-二叉树的顺序存储，指的是使用顺序表（数组）存储二叉树。需要注意的是，顺序存储只适用于完全二叉树。
-换句话说，只有完全二叉树才可以使用顺序表存储。因此，如果我们想顺序存储普通二叉树，
-需要提前将普通二叉树转化为完全二叉树。</code></pre><h3 id="二叉树的链式存储结构"><a href="#二叉树的链式存储结构" class="headerlink" title="二叉树的链式存储结构"></a>二叉树的链式存储结构</h3>   <img src="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/214.jpg" class="">
-<p>   如上图所示，此为一棵普通的二叉树，若将其采用链式存储，则只需从树的根节点开始，将各个节点及其左右孩子使用链表存储即可。因此，上图对应的链式存储结构如下图所示：<br>   <img src="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/215.jpg" class=""></p>
-<h4 id="由图可知，采用链式存储二叉树时，其节点结构由-3-部分构成（如下图所示）："><a href="#由图可知，采用链式存储二叉树时，其节点结构由-3-部分构成（如下图所示）：" class="headerlink" title="由图可知，采用链式存储二叉树时，其节点结构由 3 部分构成（如下图所示）："></a>由图可知，采用链式存储二叉树时，其节点结构由 3 部分构成（如下图所示）：</h4><pre><code>指向左孩子节点的指针（Lchild）；
-节点存储的数据（data）；
-指向右孩子节点的指针（Rchild）；
-````
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
-    }
+                <h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><p>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
+<h3 id="js版本"><a href="#js版本" class="headerlink" title="js版本"></a>js版本</h3><pre><code>    var twoSum = function(nums,target){
+        var temp,idx;
+        var map = {};
+        for(let i =0 ;i &lt; nums.length;i++){
+            temp = target - nums[i];
+            if(map[temp] !== undefined){
+                return [i,map[temp]];
+            }else{
+                map[num[i]] = i;
+            }
+        }
+    }</code></pre><h3 id="golang版本"><a href="#golang版本" class="headerlink" title="golang版本"></a>golang版本</h3><pre><code>    func twoSum(nums[] int,target int) []int{
+        maps :=make(map[int] int)
+        result := make([] int,2)
+        for index,num :=range nums{
+            _,isTrue :=maps[target - num]
+            if(isTrue){
+                result[0] = maps[target-num]
+                result[1] = index
+            }else{
+                maps[num] = index
+            }
+        }
+        return result
+    }</code></pre><h3 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2. 两数相加"></a>2. 两数相加</h3><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>示例：</p>
+<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
+<pre><code>function ListNode(val) {
+    this.val = val;
+    this.next = null;
 }
-````</code></pre><h4 id="二叉树先序遍历"><a href="#二叉树先序遍历" class="headerlink" title="二叉树先序遍历"></a>二叉树先序遍历</h4><pre><code>二叉树先序遍历的实现思想是：
-访问根节点；
-访问当前节点的左子树；
-若当前节点无左子树，则访问当前节点的右子树；
-图 1 中二叉树采用先序遍历得到的序列为：1245367
-
-function preOrderTravserse(node) {
-    if (node){
-        console.log(node.data);
-        preOrderTravserse(node.left);
-        preOrderTravserse(node.right);
-    }
-}</code></pre><h4 id="二叉树中序遍历"><a href="#二叉树中序遍历" class="headerlink" title="二叉树中序遍历"></a>二叉树中序遍历</h4><pre><code>二叉树中序遍历的实现思想是：
-访问当前节点的左子树；
-访问根节点；
-访问当前节点的右子树；
-
-function inOrderTravserse(node) {
-    if (node){
-        inOrderTravserse(node.left);
-        console.log(node.data);
-        inOrderTravserse(node.right);
-    }
-}</code></pre><h4 id="二叉树后序遍历"><a href="#二叉树后序遍历" class="headerlink" title="二叉树后序遍历"></a>二叉树后序遍历</h4><pre><code>二叉树后序遍历的实现思想是：从根节点出发，依次遍历各节点的左右子树，
-直到当前节点左右子树遍历完成后，才访问该节点元素。
-
-function postOrderTravserse(node) {
-    if (node){
-        postOrderTravserse(node.left);
-        postOrderTravserse(node.right);
-        console.log(node.data);
-    }
-}</code></pre><h4 id="二叉树层次遍历-广度优先遍历-队列：先压左节点，再压右节点"><a href="#二叉树层次遍历-广度优先遍历-队列：先压左节点，再压右节点" class="headerlink" title="二叉树层次遍历(广度优先遍历 队列：先压左节点，再压右节点)"></a>二叉树层次遍历(广度优先遍历 队列：先压左节点，再压右节点)</h4><pre><code>也就是按层次的去遍历。依次遍历根节点，然后是左孩子和右孩子。
-所以要遍历完当前节点的所有孩子，这样才是层次遍历嘛。此时我们就不能用栈这个数据结构了，
-因为栈只能在栈顶操作。在这里，我们需要根据左右孩子的顺序来输出，所以就是先进先出的原则，
-那么我们当然就想到了队列这个数据结构。可以在rear依次插入左右孩子，
-在front依次读取并删除左右孩子，这样就保证了层次的输出。
-
-function BFS(root) {
-    let queue = [];
-    if (root === null) return;
-    queue.push(root);
-    while (queue.length){
-        let node = queue.shift();
-        console.log(node.data)
-        if (node.left){
-            queue.push(node.left)
+var addTwoNumbers = function(l1, l2) {
+    let p = l1,q = l2;
+    let curr,head,temp = 0;
+    while (p || q){
+        let v1 = p ? p.val :0;
+        let v2 = q ? q.val :0;
+        let sum = v1 + v2 + temp;
+        temp = parseInt(sum/10);
+        if (!curr){
+            curr = new ListNode(sum%10);
+            head = curr;
+        }else {
+            curr.next = new ListNode(sum%10);
+            curr = curr.next;
         }
-        if (node.right){
-            queue.push(node.right)
-        }
+        if (p) p = p.next;
+        if (q) q = q.next;
     }
-}</code></pre><h4 id="深度优先遍历（栈，先压右节点，再压左节点）"><a href="#深度优先遍历（栈，先压右节点，再压左节点）" class="headerlink" title="深度优先遍历（栈，先压右节点，再压左节点）"></a>深度优先遍历（栈，先压右节点，再压左节点）</h4><pre><code>也就深入的遍历，沿着每一个分支直到走到最后，然后才返回来遍历剩余的节点。
-二叉树不同于图，图需要标记节点是否已经访问过，因为可能会存在环，而二叉树不会出现环，
-所以不需要标记。那么，我们只需要一个栈空间，来压栈就好了。因为深度优先遍历，遍历了根节点后，
-就开始遍历左子树，所以右子树肯定最后遍历。我们利用栈的性质，先将右子树压栈，然后在对左子树压栈。
-此时，左子树节点是在top上的，所以可以先去遍历左子树。
-
-function DFS(root) {
-    let stack = []
-    if (root === null) return;
-    stack.push(root);
-    while (stack.length){
-        let node = stack.pop();
-        if (node.right){
-            stack.push(node.right)
-        }
-        if (node.left){
-            stack.push(node.left)
-        }
-        console.log(node.data)
+    if (temp &gt; 0){
+        curr.next = new ListNode(temp);
     }
+    return head;
 }</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -556,7 +513,7 @@ function DFS(root) {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiongb.github.io/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/">https://xiongb.github.io/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</a>
+                    <a href="https://xiongb.github.io/2020/05/01/leetcode1/">https://xiongb.github.io/2020/05/01/leetcode1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,8 +551,8 @@ function DFS(root) {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -641,7 +598,7 @@ function DFS(root) {
         repo: 'blogtalk',
         owner: 'xiongb',
         admin: "xiongb",
-        id: '2020-04-08T20-16-02',
+        id: '2020-05-01T22-31-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -663,9 +620,10 @@ function DFS(root) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/05/01/leetcode1/">
                     <div class="card-image">
@@ -685,9 +643,9 @@ function DFS(root) {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -696,6 +654,7 @@ function DFS(root) {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -714,28 +673,22 @@ function DFS(root) {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/08/%E6%A0%88js/">
+                <a href="/2020/04/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="栈js">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二叉树遍历">
                         
-                        <span class="card-title">栈js</span>
+                        <span class="card-title">二叉树遍历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            /**
- * 基于链表实现的栈。
- *
- * Author: nameczz
- */
-
-class Node {
-    constructor(element) {
-        this.element = element
-     
+                            二叉树本身是有序树；
+树中包含的各个节点的度不能超过 2，即只能是 0、1 或者 2；二叉树性质二叉树中，第 i 层最多有 2^(i-1) 个结点。
+如果二叉树的深度为 K，那么此二叉树最多有 2K-1 个结点。
+二叉树中，终端结点数（叶子
                         
                     </div>
                     <div class="publish-info">
@@ -753,8 +706,8 @@ class Node {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js-%E6%A0%88-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">js 栈 数据结构</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
