@@ -55,3 +55,33 @@ var lengthOfLongestSubstring = function (s) {
     }
     return max
 }
+
+// region  最长回文数
+
+function longestPalindrome(s) {
+    if ((s === null || s.length < 1)) return "";
+    let start = 0,end = 0;
+    for (let i =0;i < s.length;i++){
+        let l1 = expandAroundCenter(s,i,i);
+        let l2 = expandAroundCenter(s,i,i+1);
+        let len = Math.max(l1,l2);
+        if (len > end- start){
+            start = i - parseInt((len-1)/2);
+            end = i + parseInt(len/2)
+        }
+    } 
+    return s.substring(start,end+1)
+}
+
+function expandAroundCenter(s,left,right) {
+    let l  = left,r = right;
+    while (l >=0 && r< s.length && s[l] === s[r]){
+        l --;
+        r ++;
+    }
+    return r - l -1;
+}
+
+console.log(longestPalindrome("fdafdfda"))
+
+//endregion
